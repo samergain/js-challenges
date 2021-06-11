@@ -25,3 +25,26 @@ class Book {
 
 }
 
+class TechnicalBook extends Book {
+    constructor(title, author, isbn, numCopies, edition){
+        super(title, author, isbn, numCopies);
+        this.edition = edition
+    }
+
+    getEdition(){
+        return `The current version of this book is ${this.edition}`
+    }
+}
+
+const book11 = new TechnicalBook(
+    'Cracking the Coding Interview',
+    'MCDOWELL',
+    '123456',
+    6,
+    '3rd'
+);
+
+console.log(book11.availability);
+console.log(book11.getEdition());
+
+
