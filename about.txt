@@ -1,0 +1,3 @@
+This is a mini course on linkedIn:
+https://www.linkedin.com/learning/javascript-code-challenges/available-books
+
