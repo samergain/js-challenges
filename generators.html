@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id="next-stop">Next Stop</button>
+    <h4 id="current-stop"></h4>
+    <script>
+        //generators has been replace by async/await
+        function* myGeneratorFunction() {
+            yield "Stop1"
+            yield "Stop2"
+            yield "Stop3"
+            yield "Stop4"
+            yield "final Stop"
+        }
+
+        let trainLine = myGeneratorFunction();
+        const nextStop = document.querySelector("#next-stop");
+        const currentStop = document.querySelector("#current-stop");
+        nextStop.addEventListener('click', () => {
+            let curr = trainLine.next();
+            if(curr.done){
+                currentStop.textContent = "Last Stop... See you next time!";
+                nextStop.setAttribute("disabled",true);
+            }else{
+                currentStop.textContent = `Current Stop is: ${curr.value}`;
+            }
+        });
+
+    </script>
+
+</body>
+</html>
