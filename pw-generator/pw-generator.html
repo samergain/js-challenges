@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button class="generator">Generate Your Password</button>
+    <textarea>Your Password Will Appeare Here!</textarea>
+    <script>
+        document.querySelector(".generator").addEventListener("click",printPW);
+        
+        function printPW(){
+            var pw = getPW();
+            document.querySelector("textarea").value = pw;
+        }
+        
+        function getPW(){
+            var upperLetters = ['A','B','C','D','E','F','G','H','I'];
+            var lowerLetters = ['a','b','c','d','e','f','g','h','i'];
+            var numbers = [1,2,3,4,5,6,7,8,9];
+            var specialChars = ['!','@','$','&','*','(',')'];
+            let cats = [];
+            alert('please select at least one category for your PW');
+            let a1 = confirm("Include Uppercase letters?");
+            let a2 = confirm("Include Lowercase letters?");
+            let a3 = confirm("Include numbers?");
+            let a4 = confirm("Include Special Characters?");
+            if(a1){cats = cats.concat(upperLetters)}
+            if(a2){cats = cats.concat(lowerLetters)}
+            if(a3){cats = cats.concat(numbers)}
+            if(a4){cats = cats.concat(specialChars)}
+            
+            result ='';
+            for(let i=0; i<11; i++){
+               
+                result += cats[Math.floor(Math.random() * cats.length)];
+            }
+            
+            return result;
+        }
+    </script>
+</body>
+</html>
