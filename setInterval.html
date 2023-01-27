@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SetInterval/Timeout</title>
+    <style>
+        .red {
+            color: red;
+        }
+        .green {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <h2 id="txt" class="red">Hello World!</h2>
+    <button id="changeColor">Start Color Flashing</button>
+    <button id="stopColor">Stop Color Flashing</button>
+    <script>
+        let txt = document.getElementById("txt");
+        let changeColorBtn = document.getElementById("changeColor");
+        let stopColorBtn = document.getElementById("stopColor");
+        let colorInterval = null;
+
+        changeColorBtn.addEventListener("click",()=>{
+            colorInterval = setInterval(()=>{
+                txt.className = txt.className === "red" ? "green" : "red";
+            },500)
+        });
+        
+        stopColorBtn.addEventListener("click",()=>{
+            clearInterval(colorInterval);
+            colorInterval = null;
+        });
+    </script>
+</body>
+</html>
