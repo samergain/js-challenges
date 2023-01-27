@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG-Generator</title>
+</head>
+<body>
+    <label for="color1">Pick color 1: </label>
+    <input type="color" name="color1" id="color1" value="#111111"><br>
+    <label for="color2">Pick color 2: </label>
+    <input type="color" name="color2" id="color2" value="#565656">
+    <br>
+    <h2>Sample:</h2>
+    <div id="sample" style="height: 300px; width: 600px;">
+       
+    </div>
+    <h4>CSS code: </h4>
+    <p>background-Image: <span id="bgTxt"></span></p>
+    <script>
+        
+        let color1 = document.getElementById("color1");
+        let color2 = document.getElementById("color2");
+        let bgTxt = document.getElementById("bgTxt");
+
+        let changeBG = function(c1, c2) {
+            let background = `linear-gradient(to right, ${c1} , ${c2})`;
+            document.getElementById("sample").style.backgroundImage = background;
+            bgTxt.textContent = background;
+        }
+
+        changeBG(color1.value,color2.value);
+        color1.addEventListener("input", ()=>{changeBG(color1.value,color2.value);})
+        color2.addEventListener("input", ()=>{changeBG(color1.value,color2.value);})
+    </script>
+</body>
+</html>
